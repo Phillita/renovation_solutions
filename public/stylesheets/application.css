@@ -211,3 +211,8 @@ fieldset{
 .clear{
     clear:both;
 }
+
+#messages{
+    text-align:center;
+    color:yellow;
+}

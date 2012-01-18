@@ -44,11 +44,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new
     @user.email = params[:email]
-    @user.password = params[:password]
-    @user.save
-    session[:user_id] = @user.id
-    #redirect_to "/home/login", 
-    redirect_to "/home/index", flash[:notice] => "Successfully created!"
+    #@user.password = params[:password]
+    unless @user.check_email
+      @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "Successfully created!"
+      redirect_to "/home/index"
+    else
+      flash[:error] = "Email Already Exists."
+      redirect_to "/home/index"
+    end
   end
 
   # PUT /users/1

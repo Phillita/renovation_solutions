@@ -13,14 +13,6 @@
 </form> -->
 
 <% form_tag(:controller => "home", :action => "login", :method => "post", :class => "form") do %>
-	<% if flash[:error] or flash[:notice] %>
-		<div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
-			<%= flash[:error] || flash[:notice] %>
-		</div>
-		<script type="text/javascript">
-			setTimeout("new Effect.Fade('notice');", 15000)
-		</script>
-	<% end %>
 	<%= label_tag(:email, "Email") %>
     <%= text_field_tag(:email) %>
     <%= label_tag(:password, "Password") %>
