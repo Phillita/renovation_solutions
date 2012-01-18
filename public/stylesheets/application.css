@@ -1,0 +1,124 @@
+#footer{
+    background-color: lavender;
+    overflow:hidden;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    height:25px;
+    padding:15px;
+    text-align: center;
+    clear:both;
+    margin-top: 25px;
+}
+
+#title{
+    float:left;
+}
+
+#content{
+    padding: 25px;
+}
+
+#banner{
+    background-color: lavender;
+    overflow:hidden;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    height:100px;
+    padding:15px;
+}
+
+#wrap{
+    width:80%;
+    margin:0 auto;
+}
+
+.floatright{
+    float: right;
+}
+
+.floatleft{
+    float:left;
+}
+
+#title h1 {
+    margin:30px 10px;
+    padding:0;
+}
+
+#login{
+    margin:80px 5px 0;
+    padding:0;
+}
+
+input{
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+}
+
+.inputbtn:hover{
+    background-color: aqua;
+}
+
+.clear {
+    clear:both;
+}
+
+.inputbtn{
+    font:14px sans-serif;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding:5px;
+    margin-left:10px;
+}
+
+legend{
+    text-align: center;
+    color:blue;
+}
+
+fieldset{
+    border-radius:15px;
+    font: 16px sans-serif;
+    font-weight: bold;
+    padding:20px;
+    border: 5px solid #BBB;
+    margin:10px;
+}
+
+.addpadding{
+    padding-left: 50px;
+}
+
+.buttons{
+    margin-top:15px;
+    text-align:center;
+}
+
+.wrap{
+    width:85%;
+    margin:0 auto;
+}
+
+.table td{
+    padding-bottom:15px;
+}
+
+.loginlabel{
+    color: gray; 
+    font-family: arial;
+    padding-left: 10px; 
+}
+
+#homesignup{
+    float:right;
+    width: 45%;
+}
+
+#homecontent{
+    float:left;
+    width:55%;
+}

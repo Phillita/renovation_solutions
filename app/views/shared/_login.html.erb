@@ -1,0 +1,13 @@
+<form action="login" method="post">
+	<% if flash[:error] or flash[:notice] %>
+		<div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
+			<%= flash[:error] || flash[:notice] %>
+		</div>
+		<script type="text/javascript">
+			setTimeout("new Effect.Fade('notice');", 15000)
+		</script>
+	<% end %>
+    <label class="loginlabel">Email</label><input type="text" id="email" name="email"/>
+    <label class="loginlabel">Password</label><input type="password" id="password" name="password"/>
+    <input type="submit" id="submit" name="submit" class="inputbtn" style="padding:1px 5px" value="Login"/>
+</form>

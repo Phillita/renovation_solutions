@@ -1,0 +1,15 @@
+<div id="homesignup">
+
+    <fieldset class="floatright">
+        <Legend class="legendtitle">Sign Up</legend>
+            <div class="wrap">
+                <%= form_for @user, :url => { :controller => "users", :action => "create" }, :html => {:class => "sign_up"} do |f| %>
+                    <%= label_tag(:email, "Email") %>
+                    <%= text_field_tag(:email) %>
+                    <%= label_tag(:password, "Password") %>
+                    <%= password_field_tag(:password) %>
+                    <%= f.submit "Create" %>
+                <% end %>
+            </div>
+    </fieldset>
+</div>
