@@ -9,21 +9,44 @@
     </head>
     <body>
         <div id="wrap">
-            <div id="banner">
-                <div id ="title" class="floatleft">
-                    <h1>Renovation Solutions</h1>
+            
+                <div id="toplinks">
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a href="#">Services</a>
+                        <% unless session[:user_id].nil? %>
+                            <a href="#">Profile</a>
+                        <% end %>
+                        <a href="#">Contact</a>
+                        <%= link_to "Logout", :action => "logout" unless session[:user_id].nil? %>
                 </div>
-                <div id="login" class="floatright"/>
+                <div id="login" class="floatright" style="margin-right:0;padding:0;"/>
                     <%= render :partial => 'shared/login' if session[:user_id].nil? %>
                     <%= "Welcome " + current_user.first_name + " " + current_user.last_name unless session[:user_id].nil? || current_user.first_name.nil? %>
                     <%= "Welcome To the site! Get started!" if !session[:user_id].nil? && current_user.first_name.nil? %>
-                    <%= link_to "Logout", :action => "logout" unless session[:user_id].nil? %>
+                </div>
+            <div class="clear"></div>
+            <div id="banner">
+                <div id ="title" class="floatleft">
+                    <h1>Renovation Solutions</h1>
                 </div>
             </div>
             <div id="content">
                 <%= yield %>
             </div>
-            <div id="footer">&copy 2011 Renovation Solutions</div>
+            <div id="footer">
+                <div id="flinks">
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a href="#">Services</a>
+                        <% unless session[:user_id].nil? %>
+                            <a href="#">Profile</a>
+                        <% end %>
+                        <a href="#">Contact</a>
+                        <%= link_to "Logout", :action => "logout" unless session[:user_id].nil? %>
+                </div>
+                &copy 2011 Renovation Solutions
+            </div>
         </div>
     </body>
 </html>
