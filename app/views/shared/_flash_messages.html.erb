@@ -1,0 +1,8 @@
+<% if flash[:error] || flash[:notice] %>
+	<div id="notice" <% if flash[:notice] %>class="notice"<% end %>>
+		<%= flash[:error] || flash[:notice] %>
+	</div>
+	<script type="text/javascript">
+		setTimeout("new Effect.Fade('notice');", 15000)
+	</script>
+<% end %>
