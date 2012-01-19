@@ -15,6 +15,7 @@ class HomeController < ApplicationController
   		redirect_to "/home/index"
   	else
   		#flash[:notice] = "Successfully logged in."
+      
   		session[:user_id] = user.id
   		redirect_to "/home/index"
   	end

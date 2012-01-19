@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     #@user.password = params[:password]
     unless @user.check_email
+      @user.send_random_password
       @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Successfully created!"

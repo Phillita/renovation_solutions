@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
 		return true
 	end
 
+	def send_random_password
+		debugger
+		pwd = Password::generate_random_password
+		self.Password = pwd
+		#send password to user
+
+	end
+
 end
