@@ -5,7 +5,10 @@
     	<meta charset="utf-8" />
     	<title>Renovation Solutions</title>
         <%= stylesheet_link_tag  "application" %>
-        <%#= javascript_include_tag  "application" %>
+        <%= stylesheet_link_tag  "layout" %>
+        <%= javascript_include_tag  "application" %>
+        <script src="http://code.jquery.com/jquery-1.6.2.js"></script>       
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="wrap">
@@ -13,7 +16,7 @@
                 <div id="toplinks">
                         <a href="#">Home</a>
                         <a href="#">About</a>
-                        <a href="#">Services</a>
+                        <%= link_to "Services", :controller => "services", :action => "show", :id => @services %>
                         <% unless session[:user_id].nil? %>
                             <a href="#">Profile</a>
                         <% end %>
