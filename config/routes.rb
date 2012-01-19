@@ -6,6 +6,9 @@ RenovationSolutions::Application.routes.draw do
   match "home/logout", :to => "home#logout"
   match "/home/logout" => redirect("/home/index")
   match "home/create", :to => "home#create"
+  match "home/about", :to => "home#about"
+  match "home/contact", :to => "home#contact"
+  match "users/profile", :to => "users#profile"
   match "services/show", :to => "services#show"
 
   #resources :users

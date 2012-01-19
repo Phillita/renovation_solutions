@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@user = User.new
+    @user = User.new if current_user.nil?
 
   	respond_to do |format|
       format.html # new.html.erb
@@ -17,7 +17,7 @@ class HomeController < ApplicationController
   		#flash[:notice] = "Successfully logged in."
       
   		session[:user_id] = user.id
-  		redirect_to "/home/index"
+  		redirect_to request.referrer
   	end
   end
 
@@ -27,5 +27,13 @@ class HomeController < ApplicationController
   		#flash[:notice] = "Successfully logged out."
   		redirect_to "/home/index"
   	end
+  end
+
+  def about
+    @user = User.new if current_user.nil?
+  end
+
+  def contact
+    @user = User.new if current_user.nil?
   end
 end

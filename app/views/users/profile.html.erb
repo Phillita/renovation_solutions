@@ -1,0 +1,7 @@
+<div class="content">
+	<% if current_user.first_name.nil? %>
+		<h1>Your Profile</h1>
+	<% else %>
+		<h1><%= user_name %></h1>
+	<% end %>
+</div>

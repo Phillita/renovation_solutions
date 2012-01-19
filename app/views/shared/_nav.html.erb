@@ -1,0 +1,6 @@
+<%= link_to "Home", :controller => "home", :action => "index" %>
+<%= link_to "About", :controller => "home", :action => "about" %>
+<%= link_to "Services", :controller => "services", :action => "show" %>
+<%= link_to "Profile", :controller => "users", :action => "profile" unless session[:user_id].nil?%>
+<%= link_to "Contact", :controller => "home", :action => "contact" %>
+<%= link_to "Logout", :controller => "home", :action => "logout"  unless session[:user_id].nil? %>

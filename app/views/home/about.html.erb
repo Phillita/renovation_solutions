@@ -1,0 +1,8 @@
+<div class="content">
+	<h1>About Us</h1>
+	<p>We are your renovation solutions. Providing services for you is what we are here for.</p>
+	<p>When it comes to managing a large project to just the do it yourself job, this web site can help you.</p>
+	<% if current_user.nil? %>
+    	<%= render :partial => "shared/sign_up" %>
+	<% end %>
+</div>
