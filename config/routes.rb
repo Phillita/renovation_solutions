@@ -22,6 +22,7 @@ RenovationSolutions::Application.routes.draw do
   match "home/contact", :to => "home#contact"
   match "users/profile", :to => "users#profile"
   match "services/show", :to => "services#show"
+  match "home/register", :to => "home#register"
 
   #resources :users
   match "users/create", :to => "users#create"

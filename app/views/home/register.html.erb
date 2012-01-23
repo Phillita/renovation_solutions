@@ -1,0 +1,68 @@
+<div id="register">
+<%= form_tag(:controller => "users", :action => "create", :method => "post", :class => "form") do %>
+	<table>
+	<tr>
+	<td>
+	<%= label_tag(:email, "Email") %>
+	</td>
+	<td>
+    <%= text_field_tag(:email) %> 
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= label_tag(:first_name, "First Name") %>
+    </td>
+    <td>
+    <%= text_field_tag(:first_name) %>
+    </td>
+    </tr>
+    <td>
+    <%= label_tag(:last_name, "Last Name") %>
+    </td>
+    <td>
+    <%= text_field_tag(:last_name) %>
+    </td>
+    <tr>
+    <td>
+    <%= label_tag(:address, "Address") %>
+    </td>
+    <td>
+    <%= text_field_tag(:address) %>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= label_tag(:city, "City") %>
+    </td>
+    <td>
+    <%= text_field_tag(:city) %>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= label_tag(:country, "Country") %>
+    </td>
+    <td>
+   	<select name="country">
+   		<option value="CA">Canada</option>
+   	</select>
+   	</td>
+   	</tr>
+   	<tr>
+   	<td>
+    <%= label_tag(:postal_code, "Postal Code") %>
+    </td>
+    <td>
+    <%= text_field_tag(:postal_code) %>
+    </td>
+    </tr>
+    <tr>
+    <td colspan="2" style="text-align:right">
+    <%= submit_tag "Register" %>
+    </td>
+    </tr>
+    </table>
+    
+<% end %>
+</div>

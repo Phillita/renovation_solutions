@@ -36,4 +36,8 @@ class HomeController < ApplicationController
   def contact
     @user = User.new if current_user.nil?
   end
+
+  def register
+    @user = User.new if current_user.nil?
+  end
 end
