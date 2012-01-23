@@ -17,8 +17,8 @@
                 </div>
                 <div id="login" class="floatright" style="margin-right:0;padding:0;"/>
                     <%= render :partial => 'shared/login' if session[:user_id].nil? %>
-                    <%= "Welcome " + current_user.first_name + " " + current_user.last_name unless session[:user_id].nil? || current_user.first_name.nil? %>
-                    <%= "Welcome To the site " + current_user.email + "!" if !session[:user_id].nil? && current_user.first_name.nil? %>
+                    <%= "Welcome " + user_name unless session[:user_id].nil? || current_user.profile.first_name.nil? %>
+                    <%= "Welcome To the site " + current_user.email + "!" if !session[:user_id].nil? && current_user.profile.first_name.nil? %>
                 </div>
             <div class="clear"></div>
             <div id="banner">

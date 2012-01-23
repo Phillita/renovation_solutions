@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_name
-    current_user.first_name + " " + current_user.last_name
+    current_user.profile.first_name + " " + current_user.profile.last_name
   end
 
   helper_method :current_user #make this method available in views
