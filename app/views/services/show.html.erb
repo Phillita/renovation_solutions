@@ -14,7 +14,13 @@
 
         var outerLayout, westLayout, eastLayout;
 
-        $(document).ready(function() {
+    $(document).ready(function() {
+        outerLayout = $('#layoutmain').layout({
+            minSize:			100	// ALL panes
+            ,	west__size:			200
+            ,	east__size:			200
+            ,	useStateCookie:		true
+        });        
 
             outerLayout = $('#layoutmain').layout({
                 minSize:			100	// ALL panes

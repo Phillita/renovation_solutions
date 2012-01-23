@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  job_id: 1
+  task_name: MyString
+  task_description: MyString
+  task_completed: 2012-01-23
+
+two:
+  job_id: 1
+  task_name: MyString
+  task_description: MyString
+  task_completed: 2012-01-23

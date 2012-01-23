@@ -10,12 +10,69 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117184828) do
+ActiveRecord::Schema.define(:version => 20120123175430) do
+
+  create_table "job_to_users", :force => true do |t|
+    t.integer  "job_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.string   "job_name"
+    t.string   "description"
+    t.decimal  "quote",         :precision => 10, :scale => 0
+    t.decimal  "running_total", :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phones", :force => true do |t|
+    t.integer  "profile_id"
+    t.integer  "phone_number"
+    t.integer  "phone_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "postal_code"
+    t.string   "profile_pic"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quote_audits", :force => true do |t|
+    t.integer  "job_id"
+    t.decimal  "old_quote",  :precision => 10, :scale => 0
+    t.decimal  "new_quote",  :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "job_id"
+    t.string   "task_name"
+    t.string   "task_description"
+    t.date     "task_completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
+    t.string   "salt"
+    t.string   "user_type"
+    t.boolean  "first_log_on"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password"

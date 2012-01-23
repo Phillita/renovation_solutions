@@ -1,0 +1,29 @@
+<%= form_for(@quote_audit) do |f| %>
+  <% if @quote_audit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quote_audit.errors.count, "error") %> prohibited this quote_audit from being saved:</h2>
+
+      <ul>
+      <% @quote_audit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :job_id %><br />
+    <%= f.text_field :job_id %>
+  </div>
+  <div class="field">
+    <%= f.label :old_quote %><br />
+    <%= f.text_field :old_quote %>
+  </div>
+  <div class="field">
+    <%= f.label :new_quote %><br />
+    <%= f.text_field :new_quote %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

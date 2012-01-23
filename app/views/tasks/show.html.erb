@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Job:</b>
+  <%= @task.job_id %>
+</p>
+
+<p>
+  <b>Task name:</b>
+  <%= @task.task_name %>
+</p>
+
+<p>
+  <b>Task description:</b>
+  <%= @task.task_description %>
+</p>
+
+<p>
+  <b>Task completed:</b>
+  <%= @task.task_completed %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

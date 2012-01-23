@@ -1,5 +1,17 @@
 RenovationSolutions::Application.routes.draw do
   
+  resources :quote_audits
+
+  resources :job_to_users
+
+  resources :tasks
+
+  resources :jobs
+
+  resources :phones
+
+  resources :profiles
+
   root :to => "home#index"
   match "/home/index", :to => "home#index"
   match "/home/login", :to => "home#login"

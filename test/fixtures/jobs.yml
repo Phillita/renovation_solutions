@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  job_name: MyString
+  description: MyString
+  quote: 9.99
+  running_total: 9.99
+
+two:
+  job_name: MyString
+  description: MyString
+  quote: 9.99
+  running_total: 9.99

@@ -1,0 +1,27 @@
+<h1>Listing quote_audits</h1>
+
+<table>
+  <tr>
+    <th>Job</th>
+    <th>Old quote</th>
+    <th>New quote</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quote_audits.each do |quote_audit| %>
+  <tr>
+    <td><%= quote_audit.job_id %></td>
+    <td><%= quote_audit.old_quote %></td>
+    <td><%= quote_audit.new_quote %></td>
+    <td><%= link_to 'Show', quote_audit %></td>
+    <td><%= link_to 'Edit', edit_quote_audit_path(quote_audit) %></td>
+    <td><%= link_to 'Destroy', quote_audit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Quote audit', new_quote_audit_path %>
