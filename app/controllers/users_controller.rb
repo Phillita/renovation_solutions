@@ -49,8 +49,11 @@ class UsersController < ApplicationController
       @user.send_random_password
       @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Successfully created!"
-      redirect_to "/home/index"
+      email = Emailer.new
+      email.contact(@user.email, "Renovation Solutions", "Your password to enter the site again is: " + @user.password + ". \nOnce you disconnect from the site you will need to provide this to login. \nYou will be asked to change this password the first time you log in.")
+      redirect_to :controller => "emailer", :action => "sendmail", params[:email] => email
+      flash[:notice] = "Successfully created! An email was sent to you to confirm it is legitimate."
+      #redirect_to "/home/index"
     else
       flash[:error] = "Email Already Exists."
       redirect_to "/home/index"

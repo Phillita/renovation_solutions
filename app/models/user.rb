@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_one :profile
+
 	#before_save :hash_password
 	validates_presence_of :email
 
@@ -10,11 +12,9 @@ class User < ActiveRecord::Base
 	end
 
 	def send_random_password
-		debugger
 		pwd = Password::generate_random_password
-		self.Password = pwd
+		self.password = pwd
 		#send password to user
-
 	end
 
 end
