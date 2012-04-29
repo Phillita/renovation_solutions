@@ -128,3 +128,13 @@
     padding-bottom:	0.35ex; /* to 'vertically center' text inside text-span */
 }
 
+#maincontent{
+    width:80%;
+    margin:0 auto;
+    text-align:center;
+}
+
+#maincontent label{
+    font-size:14pt;
+}
+

@@ -1,0 +1,95 @@
+<% if current_user.nil? %>
+    <h1>Services</h1>
+    <p>When you sign up, the content you receive is based on the membership you obtain. We provide:</p>
+    <ul>
+        <li>Job managing utilities..</li>
+        <li>Expert material information and pricing..</li>
+        <li>A unique custom interface for working with you project..</li>
+        <li>And custom quote engine!</li>
+    </ul>
+    <%#= render :partial => "shared/sign_up" %>
+<% else %>
+    <h1>Services</h1>
+    <script type="text/javascript">
+
+        var outerLayout, westLayout, eastLayout;
+
+    $(document).ready(function() {
+        outerLayout = $('#layoutmain').layout({
+            minSize:			100	// ALL panes
+            ,	west__size:			200
+            ,	east__size:			200
+            ,	useStateCookie:		true
+        });        
+
+            outerLayout = $('#layoutmain').layout({
+                minSize:			100	// ALL panes
+                ,	west__size:			200
+                ,	east__size:			200
+                ,	useStateCookie:		true
+            });
+
+            westLayout = $('div.ui-layout-west').layout({
+                minSize:				50	// ALL panes
+                ,	center__paneSelector:	".west-center"
+                ,	south__paneSelector:	".west-south"
+                ,	south__size:			300
+            });
+
+            eastLayout = $('div.ui-layout-east').layout({
+                minSize:				50	// ALL panes
+                ,	center__paneSelector:	".east-center"
+                ,	south__paneSelector:	".east-south"
+                ,	south__size:			100
+            });
+
+        });
+
+    </script>
+
+    <div id="layoutmain" style="height:600px;">
+
+        <div class="ui-layout-center">
+            <div id="maincontent"></div>
+        </div>
+
+        <div class="ui-layout-west">
+            <div class="west-center">
+                <h2>Jobs</h2>
+                <ol>
+                    <% @jobs.each do |job| %>
+                        <li>
+                            <%= link_to "#{job.job_name}", {:controller => "jobs", :action => "show", :id => job.id}, :remote => true %>
+                        </li>
+                    <% end %>
+                </ol>
+                <%= link_to "New Job", {:controller => "jobs", :action => "new"}, :remote => true %>
+            </div>
+            <div class="west-south">
+                <h2>Quotes</h2>
+                <ol>
+                    <% @jobs.each do |job| %>
+                        <li>
+                            <td><%= "#{job.job_name} - #{job.quote}" %></td>
+                        </li>
+                    <% end %>
+                </ol>
+            </div>
+        </div>
+
+        <div class="ui-layout-east">
+            <div class="east-center"> 
+                <h2>Running Totals</h2>
+                <ol>
+                    <% @jobs.each do |job| %>
+                        <li>
+                            <td><%= "#{job.job_name} - #{job.running_total}" %></td>
+                        </li>
+                    <% end %>
+                </ol>
+            </div>
+            <div class="east-south">  East - South </div>
+        </div>
+
+    </div>
+<% end %>

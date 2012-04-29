@@ -16,6 +16,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     respond_to do |format|
+      format.js
       format.html # show.html.erb
       format.xml  { render :xml => @job }
     end
@@ -27,6 +28,7 @@ class JobsController < ApplicationController
     @job = Job.new
 
     respond_to do |format|
+      format.js
       format.html # new.html.erb
       format.xml  { render :xml => @job }
     end
@@ -40,16 +42,20 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.xml
   def create
-    @job = Job.new(params[:job])
-
-    respond_to do |format|
-      if @job.save
-        format.html { redirect_to(@job, :notice => 'Job was successfully created.') }
-        format.xml  { render :xml => @job, :status => :created, :location => @job }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @job.errors, :status => :unprocessable_entity }
-      end
+    job = Job.new
+    job.job_name = params[:job_name]
+    job.description = params[:description]
+    job.quote = params[:quote].to_f
+    job.running_total = 0
+    
+    if job.save
+      jobConnect = JobToUser.new
+      jobConnect.job_id = job.id
+      jobConnect.user_id = current_user.id
+      jobConnect.save
+      redirect_to("/services/show", :notice => 'Job was successfully created.')
+    else
+      redirect_to("/services/show", :notice => 'Job Failed to Save. Try Again Later.')
     end
   end
 

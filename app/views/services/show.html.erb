@@ -7,90 +7,28 @@
         <li>A unique custom interface for working with you project..</li>
         <li>And custom quote engine!</li>
     </ul>
-    <%= render :partial => "shared/sign_up" %>
+    <%#= render :partial => "shared/sign_up" %>
 <% else %>
     <h1>Services</h1>
-    <script type="text/javascript">
+    <div id="CurrentJobs">
+        <h2>Jobs</h2>
+        <ol>
+            <% @jobs.each do |job| %>
+                <li>
+                    <%= link_to "#{job.job_name}", {:controller => "jobs", :action => "show", :id => job.id} %>
+                </li>
+            <% end %>
+        </ol>
+        <%= link_to "New Job", {:controller => "jobs", :action => "new"}, :remote => true %>
+    </div>
+    
+    <div id="AddNewJob"></div>
 
-        var outerLayout, westLayout, eastLayout;
-
-    $(document).ready(function() {
-        outerLayout = $('#layoutmain').layout({
-            minSize:			100	// ALL panes
-            ,	west__size:			200
-            ,	east__size:			200
-            ,	useStateCookie:		true
-        });        
-
-            outerLayout = $('#layoutmain').layout({
-                minSize:			100	// ALL panes
-                ,	west__size:			200
-                ,	east__size:			200
-                ,	useStateCookie:		true
-            });
-
-            westLayout = $('div.ui-layout-west').layout({
-                minSize:				50	// ALL panes
-                ,	center__paneSelector:	".west-center"
-                ,	south__paneSelector:	".west-south"
-                ,	south__size:			300
-            });
-
-            eastLayout = $('div.ui-layout-east').layout({
-                minSize:				50	// ALL panes
-                ,	center__paneSelector:	".east-center"
-                ,	south__paneSelector:	".east-south"
-                ,	south__size:			100
-            });
-
-        });
-
-    </script>
-
-    <div id="layoutmain" style="height:600px;">
-
-        <div class="ui-layout-center">
-            <h2>Input Information</h2>
-            <h2>Quote</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Material</th>
-                        <th>Amount</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
-        </div>
-
-        <div class="ui-layout-west">
-            <div class="west-center">
-                <h2>Jobs</h2>
-                <ul>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-            <div class="west-south">
-                <h2>Quotes</h2>
-                <ul>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="ui-layout-east">
-            <div class="east-center"> East - Center </div>
-            <div class="east-south">  East - South </div>
-        </div>
-
+    <div id="RecentJob">
+        <h2>Most Recent Job</h2>
+        <p><strong>Job Name:</strong> <%= @current_job.job_name %></p>
+        <p><strong>Description:</strong> <%= @current_job.description %></p>
+        <p><strong>Quote:</strong> <%= @current_job.quote %></p>
+        <p><strong>Running Total:</strong> <%= @current_job.running_total %></p>
     </div>
 <% end %>
